@@ -12,13 +12,14 @@ public class OrderRepository {
     private HashMap<String , List<String>> pair ;
     private HashSet<String> notassigned ;
     public OrderRepository() {
-        orderrecord = new HashMap<String, Order>();
-        deliveryrecord = new HashMap<>();
-        pair = new HashMap<String, List<String>>();
-        notassigned = new HashSet<>();
+        this.orderrecord = new HashMap<String, Order>();
+        this.deliveryrecord = new HashMap<>();
+        this.pair = new HashMap<String, List<String>>();
+        this.notassigned = new HashSet<>();
     }
     public void addOrder(Order order){
         orderrecord.put(order.getId(),order);
+        notassigned.add(order.getId());
     }
     public void addPartner(String partnerid){
         deliveryrecord.put(partnerid,new DeliveryPartner(partnerid));
